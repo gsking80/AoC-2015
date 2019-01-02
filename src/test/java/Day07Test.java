@@ -13,18 +13,16 @@ public class Day07Test {
   public void test1a() throws FileNotFoundException {
     final FileReader fileReader = new FileReader(getClass().getClassLoader().getResource("Day07/Test1a.txt").getPath());
     final Day07 day07 = new Day07(fileReader);
-    final Map<String, Integer> wires = day07.getWires();
 
     SoftAssertions softly = new SoftAssertions();
-    softly.assertThat(wires.get("d")).isEqualTo(72);
-    softly.assertThat(wires.get("e")).isEqualTo(507);
-    softly.assertThat(wires.get("f")).isEqualTo(492);
-    softly.assertThat(wires.get("g")).isEqualTo(114);
-    softly.assertThat(wires.get("h")).isEqualTo(65412);
-    softly.assertThat(wires.get("i")).isEqualTo(65079);
-    softly.assertThat(wires.get("x")).isEqualTo(123);
-    softly.assertThat(wires.get("y")).isEqualTo(456);
-    softly.assertThat(wires.size()).isEqualTo(8);
+    softly.assertThat(day07.value("d")).isEqualTo(72);
+    softly.assertThat(day07.value("e")).isEqualTo(507);
+    softly.assertThat(day07.value("f")).isEqualTo(492);
+    softly.assertThat(day07.value("g")).isEqualTo(114);
+    softly.assertThat(day07.value("h")).isEqualTo(65412);
+    softly.assertThat(day07.value("i")).isEqualTo(65079);
+    softly.assertThat(day07.value("x")).isEqualTo(123);
+    softly.assertThat(day07.value("y")).isEqualTo(456);
     softly.assertAll();
   }
 
@@ -32,10 +30,19 @@ public class Day07Test {
   public void testSolution1() throws FileNotFoundException {
     final FileReader fileReader = new FileReader(getClass().getClassLoader().getResource("Day07/input.txt").getPath());
     final Day07 day07 = new Day07(fileReader);
-    final Map<String, Integer> wires = day07.getWires();
 
     SoftAssertions softly = new SoftAssertions();
-    softly.assertThat(wires.get("a")).isEqualTo(72);
+    softly.assertThat(day07.value("a")).isEqualTo(3176);
+    softly.assertAll();
+  }
+
+  @Test
+  public void testSolution2() throws FileNotFoundException {
+    final FileReader fileReader = new FileReader(getClass().getClassLoader().getResource("Day07/input2.txt").getPath());
+    final Day07 day07 = new Day07(fileReader);
+
+    SoftAssertions softly = new SoftAssertions();
+    softly.assertThat(day07.value("a")).isEqualTo(14710);
     softly.assertAll();
   }
 

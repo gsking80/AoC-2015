@@ -1,0 +1,23 @@
+public class Day12 {
+
+  public static int sumNumbers(final String input) {
+    int sum = 0;
+    int currentNumber = 0;
+    boolean negative = false;
+    for (int i = 0; i < input.length(); i++) {
+      Character current = input.charAt(i);
+      if (current == '-') {
+        negative = true;
+      } else if (current >= '0' && current <= '9') {
+        currentNumber *= 10;
+        currentNumber += current - '0';
+      } else {
+        sum += negative ? currentNumber * -1 : currentNumber;
+        negative = false;
+        currentNumber = 0;
+      }
+    }
+    return sum;
+  }
+
+}

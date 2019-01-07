@@ -39,4 +39,44 @@ public class Day12Test {
     Assertions.assertThat(Day12.sumNumbers(input)).isEqualTo(111754);
   }
 
+  @Test
+  public void test2a() {
+    final Day12 day12 = new Day12();
+    Assertions.assertThat(day12.sumNonRedNumbers("[1,2,3]")).isEqualTo(6);
+  }
+
+  @Test
+  public void test2b() {
+    final Day12 day12 = new Day12();
+    Assertions.assertThat(day12.sumNonRedNumbers("[1,{\"c\":\"red\",\"b\":2},3]")).isEqualTo(4);
+  }
+
+  @Test
+  public void test2c() {
+    final Day12 day12 = new Day12();
+    Assertions.assertThat(day12.sumNonRedNumbers("{\"d\":\"red\",\"e\":[1,2,3,4],\"f\":5}")).isEqualTo(0);
+  }
+
+  @Test
+  public void test2d() {
+    final Day12 day12 = new Day12();
+    Assertions.assertThat(day12.sumNonRedNumbers("[1,\"red\",5]")).isEqualTo(6);
+  }
+
+  @Test
+  public void testSolution2() throws FileNotFoundException {
+    final FileReader fileReader = new FileReader(getClass().getClassLoader().getResource("Day12/input.txt").getPath());
+    String input ="";
+    try {
+      final BufferedReader buf = new BufferedReader(fileReader);
+
+      input = buf.readLine();
+
+    } catch (IOException ioe) {
+      Assertions.fail("Shouldnagothere");
+    }
+    final Day12 day12 = new Day12();
+    Assertions.assertThat(day12.sumNonRedNumbers(input)).isEqualTo(65402);
+  }
+
 }
